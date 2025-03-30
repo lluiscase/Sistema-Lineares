@@ -48,3 +48,37 @@ print(matriz)
 calculo()
 print(matriz)
 print(independentes)
+
+while True:
+    print("\nMenu")
+    print("1: Escolha de tamanho da matriz")
+    print("2: Gerar a matriz")
+    print("3: Inserir o valor da matriz dos coeficientes e da matriz independente")
+    print("4: Procurar o escalonamento")
+    print("5: Calcular o escalonamento")
+    print("0: Sair")
+    
+    escolha = int (input("Escolha uma opção: "))
+    
+    match escolha:
+        case 1:
+            linha = int(input('Digite o numero de linhas: '))
+            coluna = int(input('Digite o numero de colunas: '))
+            print(f"Tamanho da matriz: {linha}X{coluna}")
+        case 2:
+            gerar_matriz(linha,coluna)
+            print(f"Matriz gerada: {matriz}")
+        case 3:
+            matriz = valores(linha, coluna)
+            print("Matriz atualizada:", matriz)
+        case 4:
+            print("Procurar o escalonamento: ")
+            # Quando tu acabar eu add essa parte
+        case 5:
+            print("Cálcular o Escalonamento: ")
+            # Quando tu acabar eu add essa parte tbm
+        case 0:
+            print("Saindo...")
+            break
+        case _:
+            print("Opção inválida, Utilize uma das opções do menu: ")
