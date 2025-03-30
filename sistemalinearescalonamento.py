@@ -1,8 +1,6 @@
 #Programa para calculo de Matrizes, contendo coeficiente e termos independentes nos metodos de Gauss - escalonamento
 matriz = []
 independentes = []
-linha = int(input('Digite o numero de linhas'))
-coluna = int(input('Digite o numero de colunas'))
 result = 0
 
 def gerar_matriz(l, c):
@@ -29,33 +27,25 @@ def calculo():
             fator = matriz[l][i] / matriz[i][i]  
             for c in range(coluna):  
                 matriz[l][c] -= fator * matriz[i][c]
-            independentes[l] -= fator * independentes[i]  
+            independentes[l] -= fator * independentes[i]
+            print(matriz)
+            print(independentes)
     verificacao()
 
 def verificacao():
     if independentes[linha-1] == 0 and matriz[linha-1][coluna-1] == 0:
-        print("Infinitas soluções")
+        print("Infinitas soluções (SPI)")
     if independentes[linha-1] != 0 and matriz[linha-1][coluna-1] == 0:
         print("O sistema é Impossivel(SI)")
     if independentes[linha-1] != 0 and matriz[linha-1][coluna-1] != 0:
-        print("Solução Unica")
-
-
-
-gerar_matriz(linha,coluna)
-valores(linha,coluna)
-print(matriz)
-calculo()
-print(matriz)
-print(independentes)
+        print("Solução Unica (SU)")
 
 while True:
     print("\nMenu")
     print("1: Escolha de tamanho da matriz")
     print("2: Gerar a matriz")
-    print("3: Inserir o valor da matriz dos coeficientes e da matriz independente")
+    print("3: Insera os valores dos coeficientes e os termos independentes")
     print("4: Procurar o escalonamento")
-    print("5: Calcular o escalonamento")
     print("0: Sair")
     
     escolha = int (input("Escolha uma opção: "))
@@ -69,14 +59,11 @@ while True:
             gerar_matriz(linha,coluna)
             print(f"Matriz gerada: {matriz}")
         case 3:
-            matriz = valores(linha, coluna)
+            valores(linha, coluna)
             print("Matriz atualizada:", matriz)
         case 4:
-            print("Procurar o escalonamento: ")
-            # Quando tu acabar eu add essa parte
-        case 5:
-            print("Cálcular o Escalonamento: ")
-            # Quando tu acabar eu add essa parte tbm
+            print("Calculando e verificando... ")
+            calculo()
         case 0:
             print("Saindo...")
             break
